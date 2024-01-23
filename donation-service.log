@@ -1,11 +1,9 @@
 {"level":"info","message":"Listening on port: 8080.","service":"donation-service"}
-{"level":"info","message":"Item was created successfully.","service":"donation-service"}
-{"level":"info","message":"Item was created successfully.","service":"donation-service"}
-{"level":"info","message":"Item was created successfully.","service":"donation-service"}
-{"level":"info","message":"Item was created successfully.","service":"donation-service"}
-{"level":"info","message":"Item was created successfully.","service":"donation-service"}
-{"level":"info","message":"Item was created successfully.","service":"donation-service"}
+{"level":"info","message":"All items were sent successfully.","service":"donation-service"}
 {"level":"info","message":"All items were sent successfully.","service":"donation-service"}
 {"level":"info","message":"Item was sent successfully.","service":"donation-service"}
+{"level":"info","message":"Listening on port: 8080.","service":"donation-service"}
+{"level":"info","message":"Item was sent successfully.","service":"donation-service"}
+{"level":"info","message":"All items were sent successfully.","service":"donation-service"}
+{"level":"info","message":"Item was created successfully.","service":"donation-service"}
 {"level":"info","message":"Item was updated successfully.","service":"donation-service"}
-{"level":"info","message":"Item was deleted successfully.","service":"donation-service"}
