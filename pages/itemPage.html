@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Details</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+
+        main {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Donation Details</h1>
+    </header>
+    <main id="donationDetails">
+        <!-- Content will be dynamically added here -->
+    </main>
+    <script>
+        // In a real-world scenario, you would fetch donation data dynamically
+        // from the server using AJAX or another method.
+
+        // For demonstration, let's assume we have a static list of donations.
+        const donations = [
+            { id: 1, amount: 50, name: 'John Doe', email: 'john@example.com' },
+            { id: 2, amount: 100, name: 'Jane Smith', email: 'jane@example.com' },
+            // Add more donations as needed
+        ];
+
+        // Function to get donation details by ID
+        function getDonationDetailsById(id) {
+            return donations.find(donation => donation.id === id);
+        }
+
+        // Function to render donation details on the page
+        function renderDonationDetails() {
+            const donationDetailsContainer = document.getElementById('donationDetails');
+
+            // Get the donation ID from the URL query parameter (assuming it's passed)
+            const urlParams = new URLSearchParams(window.location.search);
+            const donationId = parseInt(urlParams.get('id'));
+
+            if (!donationId || isNaN(donationId)) {
+                donationDetailsContainer.innerHTML = '<p>Invalid donation ID.</p>';
+                return;
+            }
+
+            const donation = getDonationDetailsById(donationId);
+
+            if (!donation) {
+                donationDetailsContainer.innerHTML = '<p>Donation not found.</p>';
+                return;
+            }
+
+            donationDetailsContainer.innerHTML = `
+                <h2>Donation Details</h2>
+                <p><strong>ID:</strong> ${donation.id}</p>
+                <p><strong>Amount:</strong> $${donation.amount.toFixed(2)}</p>
+                <p><strong>Name:</strong> ${donation.name}</p>
+                <p><strong>Email:</strong> ${donation.email}</p>
+            `;
+        }
+
+        // Call the function to render donation details when the page loads
+        window.onload = renderDonationDetails;
+    </script>
+</body>
+</html>
