@@ -27,7 +27,7 @@ const notFoundPage = fs.readFileSync(
 const getAllItems = (res) => {
   try {
     readAllItemsData().then((items) => {
-      res.writeHead(200, { "Content-Type": "text/html" });
+      res.writeHead(200, { "Content-Type": "text/application/json" });
       res.end(JSON.stringify(items));
       logger.info("All items were sent successfully.");
     });
@@ -54,7 +54,7 @@ const getItem = async (id, res) => {
         res.end("no such an item with this id.");
         logger.error("No such an item with this id.");
       } else {
-        res.writeHead(200);
+        res.writeHead(200, { "Content-Type": "text/application/json" });
         res.end(JSON.stringify(result));
         logger.info("Item was sent successfully.");
       }
