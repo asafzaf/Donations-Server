@@ -19,10 +19,6 @@ const logger = winston.createLogger({
   ],
 });
 
-const notFoundPage = fs.readFileSync(
-  `${__dirname}/pages/notFoundPage.html`,
-  "utf-8"
-);
 
 const getAllItems = (res) => {
   try {
@@ -205,11 +201,9 @@ const newDonation = (id, name, email, amount) => {
 };
 
 const notFoundResult = (res) => {
-    res.writeHead(404, {
-      "content-type": "text/html",
-      "my-own-header": "hello-world",
-    });
-    res.end(notFoundPage);
+    res.writeHead(404);
+    res.end('Page not found.');
+    logger.error('Page not found.');
   };
 
 module.exports = {

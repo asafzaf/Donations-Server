@@ -8,13 +8,6 @@ const {
   notFoundResult,
 } = require("./controller.js");
 
-const recordsPage = fs.readFileSync(`${__dirname}/pages/index.html`, "utf-8");
-const donatePage = fs.readFileSync(
-  `${__dirname}/pages/donatePage.html`,
-  "utf-8"
-);
-const itemPage = fs.readFileSync(`${__dirname}/pages/itemPage.html`, "utf-8");
-
 const route = (method, pathname, query, res) => {
   if (method === "GET" && (pathname === "/" || pathname === "/records")) {
     getAllItems(res);
